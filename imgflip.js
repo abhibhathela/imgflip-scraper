@@ -70,6 +70,11 @@ async function getImageSrc(pageHref, referrer) {
 }
 
 async function run() {
+  //? check if folder exist
+  if (!fs.existsSync("imgflip")) {
+    fs.mkdirSync("imgflip");
+  }
+
   for (let index = 1; index <= 50; index++) {
     // get html from imgflip
     const mainPageUrl = `${baseUrl}/memetemplates?sort=top-all-time&page=${index}`;
